@@ -14,7 +14,7 @@
     {{$page := .Page}}
 
     <div class="main_title">
-        <h2><a href="/">Backcount Rank Board</a></h2>
+        <h2><a href="/">관리자 회원정보 관리</a></h2>
     </div>
     <div class="sub_title">
         {{/* <h3>랭킹게시판</h3> */}}
@@ -22,14 +22,12 @@
 {{/* <p>-표시{{.PostData}}</p> */}}
     {{range .PostData}}
         {{/* <div class="post_box"> */}}
-            - <a href="/post/{{.BoardId}}">{{.Id}}</a>   <h4 style="display:inline">백패달{{.Backcount}}</h4>|||  앞패달{{.Frontcount}}|||  자전거정보{{.Bike_info}}|||  경력{{.Career}} |||  이메일{{.Email}} |||  지역{{.Area}} <br>
+            - <a href="/post/{{.BoardId}}">{{.Id}}</a> &ensp;<h4 style="display:inline">  백패달{{.Backcount}}</h4> &ensp; ||| &ensp; 앞패달{{.Frontcount}}&ensp;||| &ensp; 자전거정보{{.Bike_info}} &ensp;  ||| &ensp; 경력{{.Career}} &ensp; ||| &ensp; 이메일{{.Email}} &ensp; |||&ensp;  지역{{.Area}} <br>
             
             {{/* <br><br> */}}
         {{/* </div> */}}
     {{ end }}
 
-  <li>Madrid</li>
-</ul>
 
 
     {{/* // <h4><p> -Name : {{.Name}}</p></h4> */}}

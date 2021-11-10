@@ -160,7 +160,7 @@ const (
 	host     = "127.0.0.1"
 )
 
-// const (  //! 헤로쿠 작업할때 필요하다
+// const ( //! 헤로쿠 작업할때 필요하다
 // 	//추가/
 // 	user     = "bfbae725adafff"
 // 	password = "ef851b9b"
@@ -305,8 +305,8 @@ func board(w http.ResponseWriter, r *http.Request) {
 
 			tpl.ExecuteTemplate(w, "board.gohtml", temp)
 			return
-		case "area":
-			q := gormDB.Where("area LIKE ?", fmt.Sprintf("%%%s%%", keyword)).Find(&b)
+		case "id":
+			q := gormDB.Where("id LIKE ?", fmt.Sprintf("%%%s%%", keyword)).Find(&b)
 			pg := paginator.New(adapter.NewGORMAdapter(q), MaxPerPage)
 			pg.SetPage(pageInt)
 
@@ -535,7 +535,7 @@ func ranking(w http.ResponseWriter, r *http.Request) {
 
 /***************************************세션 관련************************************************************/
 
-//세션 길이
+//세션 유지 길이 //21-11-10
 const sessionLength int = 600
 
 //세션 생성
@@ -632,7 +632,7 @@ func CleanSessions(db *sql.DB) {
 	}
 
 	dbSessionCleaned = time.Now()
-}
+} //12
 
 //세션 삭제
 func DeleteSession(db *sql.DB, sessionID string) {
@@ -722,7 +722,7 @@ func main() {
 	// 	port = "8080" // Default port if not specified
 	// }
 
-	// fmt.Printf("Starting server at port 8080\n")
+	fmt.Printf("Starting server at port 8080\n")
 
 	fmt.Println("Head")
 	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?charset=utf8mb4&parseTime=True", user, password, host, database)
@@ -762,7 +762,7 @@ func main() {
 	http.Handle("/web/", http.FileServer(http.FS(staticContent)))
 	fmt.Println("Listening...ss")
 
-	// http.ListenAndServe(":"+port, nil)  //! 헤로쿠 작업할때 필요 하다 11.07
+	// http.ListenAndServe(":"+port, nil) //! 헤로쿠 작업할때 필요 하다 11.07
 	http.ListenAndServe(":8080", nil)
 }
 
