@@ -151,6 +151,7 @@ func checkError(err error) {
 	}
 }
 
+//12
 const (
 	//추가
 	user     = "root"
